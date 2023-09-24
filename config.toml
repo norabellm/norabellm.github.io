@@ -1,0 +1,17 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = "Minako's Unscientific Index"
+author = "Minako"
+
+theme = 'PaperMod'
+
+[params]
+showReadingTime = true
+
+[params.homeInfoParams]
+Title = "Minako"
+Content = "Computer nerd that love programming, sysadmin and computer"
+
+[[params.socialIcons]]
+name = "GitHub"
+url = "https://github.com/minako2"
