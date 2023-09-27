@@ -211,6 +211,7 @@ Example convertion to base 2
 
 ```txt
 (4*(8^1)) + (5*(8^0)) =
+32_b10 + 5_b10 = 37_b10
 10000_b2 + 101_b2 = 10101_b2
 ```
 
@@ -218,13 +219,19 @@ Another example:
 
 - `2F_b16` into base 2.
 
-```
-2 
-
+```txt
+(2 * (16^1)) + (F * (16^0)) =
+32_b10 + 15_b10 = 47_b10
+100000_b2 + 1111_b2 = 101111_b2
 ```
 
 - `1011000_b2` into base 16
 
+```txt
+(2 * (16^1)) + (F * (16^0)) =
+32_b10 + 15_b10 = 47_b10
+100000_b2 + 1111_b2 = 101111_b2
+```
 
 ### Exercise
 
@@ -232,14 +239,14 @@ Another example:
 - `420_b16`, convert it to base 2 and base 10.
 
 
-## Convertion by Base Round Value Deduction
+## Conversion by Base Round Value Deduction
 
-Induction is good convertion for you that fast in math. Fortunately, there are way 
+Induction is good conversion for you that fast in math. Fortunately, there are way 
 for people who slow at math. This method likely work well in base 2 only.
 
 Base round value is when value that round in base such `100_b2` or `1000_b2`. These
 method depend on pattern matching of these base round value and digit. To make this 
-method effective we need remember some rainbow table and it pattern.
+method effective we need remember some rainbow table and its pattern.
 
 | Base 2 | Base 10 | Base 16 |
 |--|--|--|
@@ -259,7 +266,7 @@ For example a `10110_b2` and I try to convert it to base 10, now let puzzle it o
 ```txt
 10110
 
-# 1. Diassamble the binary into round value, 
+# 1. Diassamble the binary into round value per digit, 
 then sum it with the matched pattern.
 
 10000_b2 = 16_b10 = 10_b16
