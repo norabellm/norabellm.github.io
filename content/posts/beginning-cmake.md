@@ -12,7 +12,7 @@ CMake works by compiling `CMakeList.txt` (Your project definition) into native b
 Makefile, ninja, meson or other. So, you do not have to worry when one of the tool not exist in 
 your environment.
 
-This post is about my quick note about using CMake, it talk about creating then building project and keeping dependencies in C/C++ project. To install CMake, you could use your OS package manager or [grab the binary here](https://cmake.org/download/).
+This post is about my quick note using CMake such creating then building project and keeping dependencies in C/C++ project. To install CMake, you could use your OS package manager or [grab the binary here](https://cmake.org/download/).
 
 ## Making first project
 
@@ -72,8 +72,7 @@ Here our project structure look like:
     - CMakeLists.txt
 ```
 
-After creating the build folder and `cd`-ing, then run `cmake ../`. These step CMake will making 
-compile the `CMakeLists.txt` into compilation instruction script for build system that available in your system such GNU make or ninja that already supplied with. 
+After creating the build folder and `cd`-ing, then run `cmake ../`. These step CMake will compiling the `CMakeLists.txt` into instruction script for build system that available in your system such GNU make or ninja that already supplied with. 
 
 If you run in Linux ecosystem, your probably ended using GNU make. If Mac your probably use ninja. Lets assume you using Linux then you need run `make` after CMake finish build receipt for you.
 
@@ -81,7 +80,7 @@ After finish buliding, your will found the `First-Exe` binary in `build` folder.
 
 ### Adding new file
 
-Let say you want to add new file your project. Here an example, you want to add folder in `utils` with filename `utils.hh` and `utils.cc`. 
+Let say you want to add new file your project. Here an example, you want to add folder in `utils` with that contain `utils.hh` and `utils.cc` file. 
 
 ```txt
 + first-project
@@ -111,14 +110,13 @@ add_executable(First-Exe
 
 ## Dependencies
 
-There serveral way to import library to CMake. There three easy way to do that, using `find_package` command, importing another CMake project or directly include the library folder by
-`add_subdirectory` command.
+There serveral way to import library to CMake. There four easy way to do that, using `find_package` command, importing another CMake project, convert source code into CMake project or use Vcpkg.
 
-Keep in mind, CMake always build the shared object of imported library for linking proccess and find it include header files.
+Keep in mind, CMake always build the shared object of imported library for linking proccess and it include header files.
 
 ### find_package
 
-This is the quite convinient way import directory. CMake will check path listed in `CMAKE_MODULE_PATH` environment variable then match each directory to find your library. 
+This is the simple way to import dependencies. CMake will check path listed in `CMAKE_MODULE_PATH` environment variable then match each directory to find your library. 
 
 There an advantage of this method. You can install dependencies using your OS package manager (such, libXX or libXX-devel) then use `find_package` command to use it. 
 
@@ -143,7 +141,7 @@ add_executable(First-Exe
 target_link_libraries(First-Exe PUBLIC CURL)
 ```
 
-Code above shown, I add `find_package(CURL)` to import `curl` library that installed (`libcurl` for shared object and `libcurl-dev` for inculde header files) and `target_link_libraries(First-Exe PUBLIC CURL)` to linking the shared object against `First-Exe` object in order making complete executable that resolve the `curl` shared library.
+Let me explain code above. I add `find_package(CURL)` to import `curl` library that installed (`libcurl` for shared object and `libcurl-dev` for inculde header files) and `target_link_libraries(First-Exe PUBLIC CURL)` to linking the shared object against `First-Exe` object in order making complete executable that resolve the `curl` shared library.
 
 After that do the build,
 
@@ -159,8 +157,8 @@ $ ./First-Exe
 Importing another CMake project almost like adding file to `add_executable` command. To do this, you
 should grab the source code you want import to your project. For convinient, create `vendor` directory then put the source code of CMake project you want to import.
 
-For example, let assume you had `machineid` folder that contain CMake project of Curl inside `vendor` 
-directory.
+For example, let assume you had `machineid` folder that contain CMake project of machineid library 
+inside `vendor` directory.
 
 ```txt
 + first-project
@@ -221,7 +219,11 @@ Vcpkg is package manager for handle C/C++ libraries, it almost same like conan o
 
 Installing package in Vcpkg is quite simple, just `vcpkg install <your library>`. You could explore available package at [https://vcpkg.io/en/packages](https://vcpkg.io/en/packages).
 
-After installing the package, then we need import it to our project by `find_package` command. For example, in here I want to install `curl` library.
+After installing the package, then we need import it to our project by `find_package` command.
+
+Here a case, I want to install `curl` library and import it to my project.
+
+Look at instruction of how to do it:
 
 - Install from vcpkg, run `vcpkg install curl`
 
@@ -260,5 +262,7 @@ CMake with Vcpkg package consensus so `find_project` be able to resolve the libr
 
 ## Conclusion
 
-The step above is my workflow when dealing with CMake or C/C++ in general and my current knowledge about CMAke. I not covering about testing, cross-compilation and etc. Anyway, that is small slice of pizza called CMake.
+The step above is my workflow when dealing with CMake or C/C++ in general and my current knowledge about CMake. 
+
+There interesting topic I not covered, such testing, cross-compilation and so forth. 
 
