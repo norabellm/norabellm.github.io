@@ -48,6 +48,29 @@
     {{- if (and site.Params.ShowShareButtons (ne .Params.disableShare true)) }}
     {{- partial "share_icons.html" . -}}
     {{- end }}
+    <article 
+      name="sponsor" class="post-entry"
+        style="margin-top: var(--gap);"
+      >
+      <header class="entry-header">
+        <h2>Did you enjoy this post ?</h2>
+        <section>
+          Consider follow or sponsor @norabellm GitHub to make Minako happy.
+        </section>
+        <section style="display: flex;">
+          <a 
+            href="https://github.com/norabellm"
+            style="margin-inline-end: 3px;margin-bottom: 5px;border: 1px solid;padding: .2em 1em;margin-left: 0em;margin-top: 1em; border-radius: .3em;"
+          >Follow </a>
+          <a 
+            href="https://github.com/sponsors/norabellm"
+            style="margin-inline-end: 3px;margin-bottom: 5px;border: 1px solid;padding: .2em 1em;margin-left: 1em;margin-top: 1em; border-radius: .3em;"
+            >
+            Sponsor
+          </a>
+        </section>
+      </header>
+    </article>
   </footer>
 
   {{- if (.Param "comments") }}

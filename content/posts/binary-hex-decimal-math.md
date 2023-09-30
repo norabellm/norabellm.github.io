@@ -2,6 +2,7 @@
 title: "Binary Hex Octal Math : A weird number system in computer"
 date: 2023-09-26T18:14:46+07:00
 draft: false
+tags: ['reverse engineering','math']
 ---
 
 Counting from one to ten is quite obivious for us, since most human have ten finger. 
@@ -59,7 +60,7 @@ Little exercise for you, what result of `2F + 30` and what the decimal of it ?
 
 ### Base 8 or Octal
 
-Base 8 is clearly half of Base 16. It only count from one to eight. So when you sum `7` with `1` in turn to `10`. Yet another drunk math, huh? I admit this base could confuse you with base 10. In octal you can not have number `8` or `9`, which the ratio again is still `2/10` against base 10 to distiguish.
+Base 8 is clearly half of Base 16. It only count from one to eight. So when you sum `7` with `1` in turn to `10`. Yet another drunk math, huh? I admit this base could confuse you with base 10. In octal you can not have number `8` or `9`, which the ratio is still `2/10` against base 10 to distiguish.
 
 | Base 8 | Base 10|
 |--|--|

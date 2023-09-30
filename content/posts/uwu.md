@@ -2,6 +2,7 @@
 title: "UwU"
 date: 2023-09-24T11:38:03+07:00
 draft: false
+tags: ['misc']
 ---
 
 Oh, yeah. The reason I write blog because [these blog post](https://www.craigkerstiens.com/2013/03/31/why-i-blog/) is enlighten me. 

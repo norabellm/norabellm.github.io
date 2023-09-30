@@ -1,17 +1,37 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = "Minako's Unscientific Index"
-author = "Minako"
+author = "Norabell Minako"
 
 theme = 'PaperMod'
 
+
+
+[taxonomies]
+  tag = 'tags'
+
+
 [params]
 showReadingTime = true
+author = "Minako Norabell"
 
 [params.homeInfoParams]
-Title = "Minako"
+Title = "Minako Norabell"
 Content = "Computer nerd that love programming, sysadmin and computer"
 
 [[params.socialIcons]]
 name = "GitHub"
-url = "https://github.com/minako2"
+url = "https://github.com/norabellm"
+
+pygmentsCodefences = true
+pygmentsUseClasses = true
+[markup.highlight]
+      codeFences = true
+      guessSyntax = true
+      hl_Lines = ""
+      lineNoStart = 1
+      lineNos = true
+      lineNumbersInTable = true
+      tabWidth = 4
+      noClasses = false
+      style = "monokai"
