@@ -176,7 +176,7 @@ inside `vendor` directory.
 ```
 
 Make sure the source code directory contain `CMakelists.txt` file. Then at 
-`CMakeLists.txt` in root folder we add `add_subdirectory` and `include_directories` command.
+`CMakeLists.txt` in root folder we add `add_subdirectory` command.
 
 ```cmake
 cmake_minimum_required(VERSION 3.11)
@@ -184,7 +184,6 @@ cmake_minimum_required(VERSION 3.11)
 project(First-Project)
 
 add_subdirectory(vendor/machineid)
-include_directories(vendor/machineid/include)
 
 add_executable(First-Exe 
 
@@ -197,8 +196,7 @@ add_executable(First-Exe
 target_link_libraries(First-Exe PUBLIC machineid)
 ```
 
-`add_subdirectory` argument is path of the library source code and `include_directories` is the
-folder where the library put it include header files.
+`add_subdirectory` argument is path of the library source code.
 
 The last folder name at `add_subdirectory` will be name of project that will used for linking program. So, I add `machineid` to `target_link_libraries` for linking aginst `First-Exe` object code.
 
@@ -264,5 +262,10 @@ CMake with Vcpkg package consensus so `find_project` be able to resolve the libr
 
 The step above is my workflow when dealing with CMake or C/C++ in general and my current knowledge about CMake. 
 
+If you're looking advance example of `CMakeLists.txt`, you could visit [Screenplay/CMakeLists.txt](https://gitlab.com/kelteseth/ScreenPlay/-/blob/master/CMakeLists.txt).
+
 There interesting topic I not covered, such testing, cross-compilation and so forth. 
 
+### Acknowledge
+
+Thanks to [Elias Steurer](https://kelteseth.com/) for [additional correction](https://news.ycombinator.com/item?id=37713833).
