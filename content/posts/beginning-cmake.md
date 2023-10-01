@@ -108,6 +108,19 @@ add_executable(First-Exe
 )
 ```
 
+At `init.cc`, you could include the header file like this:
+
+```cc
+#include <iostream>
+#include "utils/utils.hh"
+
+int main()
+{
+    std::cout << "Hello, UwU" << std::endl;
+    return 0;
+}
+```
+
 ## Dependencies
 
 There serveral way to import library to CMake. There four easy way to do that, using `find_package` command, importing another CMake project, convert source code into CMake project or use Vcpkg.
@@ -142,6 +155,18 @@ target_link_libraries(First-Exe PUBLIC CURL)
 ```
 
 Let me explain code above. I add `find_package(CURL)` to import `curl` library that installed (`libcurl` for shared object and `libcurl-dev` for inculde header files) and `target_link_libraries(First-Exe PUBLIC CURL)` to linking the shared object against `First-Exe` object in order making complete executable that resolve the `curl` shared library.
+
+Then include it into your source code -- in this case is `init.cc`,
+
+```cc
+#include <iostream>
+#include "utils/utils.hh"
+#include <curl/curl.h>
+
+...
+```
+
+> P.S: include using `<>` meaning resolve file from outside project such `curl` or etc. include using `""` meaning resolve file from your local project directory such `utils/utils.hh` that exist inside `src` folder along with the `init.cc`.
 
 After that do the build,
 
